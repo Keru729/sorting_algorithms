@@ -7,7 +7,7 @@
 */
 void counting_sort(int *array, size_t size)
 {
-	int k, max;
+	int i, max;
 	int *count = NULL, *copy = NULL;
 	size_t j, temp, total = 0;
 
@@ -28,14 +28,14 @@ void counting_sort(int *array, size_t size)
 		free(copy);
 		return;
 	}
-	for (k = 0; k <= max; k++)
-		count[k] = 0;
-	for (k = 0; k < size; k++)
+	for (i = 0; i <= max; i++)
+		count[i] = 0;
+	for (j = 0; j < size; j++)
 		count[array[j]] += 1;
-	for (k = 0; k <= max; k++)
+	for (i = 0; i <= max; i++)
 	{
-		temp = count[k];
-		count[k] = total;
+		temp = count[i];
+		count[i] = total;
 		total += temp;
 	}
 	for (j = 0; j < size; j++)
